@@ -63,6 +63,10 @@ class App extends Component {
       };
 
       const list = [...this.state.list];
+
+      const test2 = "";
+
+      console.log(test2);
       list.push(userInput);
       this.setState({
         list,
