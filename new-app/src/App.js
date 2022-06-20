@@ -62,8 +62,19 @@ class App extends Component {
         value: this.state.userInput,
       };
 
+
+
+
+
+
+
+
+
+
       const list = [...this.state.list];
+      const test = ''
       list.push(userInput);
+      console.log(test)
       this.setState({
         list,
         userInput: "",
