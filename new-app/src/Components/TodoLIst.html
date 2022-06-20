@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Todo</title>
+</head>
+<style>
+    html,body{
+        margin: 0%;
+        padding: 0%;
+    }
+    h1{
+        font-size: 50px;
+        font-family: 'Lucida Sans';
+    }
+    .input1{
+        width: 100vh;
+        height: 30px;
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
+    .myDiv1{
+        display: flex;
+       
+    }
+    .btn{
+        height: 31px;
+        display: flex;
+        /* background-color: blueviolet; */
+        /* border-color: blueviolet; */
+         font-weight: bolder;
+         padding-bottom: 22px;
+        /* font-size: 20px;
+        font-size: 30; */ 
+        color: aliceblue;
+    }
+    .styles{
+        background-color: rgb(245, 235, 235);
+        /* padding: 10px; */
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    .btn1{
+        /* float: right; */
+        display: none;
+        justify-content: baseline;
+        background-color: rgb(229, 56, 56);
+    }
+
+    .styles:hover  .btn1{
+        display: block;
+    }
+
+
+#bttn{
+    float: right;
+    font-family:  Arial;
+}
+#myDiv1{
+    font-size: 20px;
+}
+.icon{
+    color:white;
+}
+
+</style>
+<body>
+    <div class="container">
+        <form>
+    <h1>Todo App </h1>
+    <div class="myDiv1">
+    <input class="input1" id ="label1" type="label" placeholder="add your new todo"  />
+    <input 0 class="btn text-align-center btn-primary" type="button" value="+"  onclick="Add()"/>
+    </div>
+    <div class="myDiv2" id="myDiv">
+         </div>
+
+         <div id="myDiv1">
+             
+         </div>
+         <input type="button" value="clear all" class="btn-primary" id="bttn" onclick="del()">
+       </form>
+    </div>
+
+    <script>
+        let todoItems = [];
+        let i;
+        function Add(){
+            let v = document.getElementById("label1").value;
+            if(v==""){
+           
+                alert("invalid input")
+               
+                return false;
+                
+            } else {
+            
+            document.getElementById("myDiv1").innerHTML = "You have "+todoItems.push(v)+ " pending works";
+            
+           console.log(todoItems);
+        //    list();
+        
+      
+          for(i=0;i<todoItems.length;i++){
+            
+    
+    div1 = document.createElement('div');
+    
+        div1.classList.add("styles");
+        //    var txt = document.createElement('text');
+       
+       
+           input = document.createElement("button");
+   //   input.type="button";
+    //   input.classList.add("material-symbols-outlined")
+     // input.setAttribute("value","X")
+      input.setAttribute("id",i)
+    //   input.setAttribute("onclick", todo() );
+     input.onclick = todo;
+
+      input.classList.add("btn1")
+      let icon = document.createElement("i");
+      icon.setAttribute("class","fa fa-trash")
+      icon.classList.add("icon")
+    
+
+    
+    div1.innerHTML= "<p>"+todoItems[i]+"</p>"
+    
+    // input.setAttribute("value",todoItems)
+    input.appendChild(icon)
+   div1.appendChild(input);
+ //  div1.appendChild(txt);
+  
+    
+//    myDiv.appendChild(div1);
+
+          }
+            
+          } myDiv.appendChild(div1);
+         
+           
+
+          document.getElementById("label1").value = ""
+        }
+       
+            
+           
+          
+        function del(){
+            // let e = document.getElementById("label1").value;
+            // document.getElementsByClassName("myDiv1").innerHTML = todoItems.splice(0,todoItems.length)
+          
+
+                  todoItems.splice(0,todoItems.length)
+                   document.getElementById("myDiv").innerHTML = ""
+                   document.getElementById("myDiv1").innerHTML = "You have"+todoItems.length +"pending works";
+                 
+                  // list();
+                // document.getElementsByClassName("styles").innerHTML = 
+                // while(todoItems.length > 0) {
+                   
+                //            todoItems.pop()
+                           
+                           console.log(todoItems)
+                //         }
+                // (todoItems.length = 0)
+
+          
+        }
+
+        function todo(){
+           let c =  todoItems.indexOf(todoItems)
+           todoItems.splice(c,1)
+
+
+            console.log(todoItems)
+        }
+        
+    
+    
+           
+    </script>
+</body>
+</html>
