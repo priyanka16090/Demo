@@ -44,7 +44,7 @@ import Comp2 from './Components/Comp2';
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props);g
     this.state = {
       userInput: "",
       list: [],
@@ -56,7 +56,7 @@ class App extends Component {
     });
   }
   addItem(userInput) {
-    if (this.state.userInput.trim() !== "") {
+    if (this.state.userInput.trim() !== null) {
       const userInput = {
         id: Math.random(),
         value: this.state.userInput,
