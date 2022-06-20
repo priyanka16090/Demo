@@ -45,6 +45,7 @@ import Comp2 from "./Components/Comp2";
 class App extends Component {
   constructor(props) {
     super(props);
+    g;
     this.state = {
       userInput: "",
       list: [],
