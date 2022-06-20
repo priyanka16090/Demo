@@ -29,9 +29,9 @@ function App() {
 
 export default App;*/
 
-import { Component } from 'react';
-import React from 'react';
-import './App.css';
+import { Component } from "react";
+import React from "react";
+import "./App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -39,8 +39,8 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import ListGroup from "react-bootstrap/ListGroup";
-import Comp1 from './Components/Comp1';
-import Comp2 from './Components/Comp2';
+import Comp1 from "./Components/Comp1";
+import Comp2 from "./Components/Comp2";
 
 class App extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class App extends Component {
     });
   }
   addItem(userInput) {
-    if (this.state.userInput.trim() !== "") {
+    if (this.state.userInput.trim() !== null) {
       const userInput = {
         id: Math.random(),
         value: this.state.userInput,
@@ -71,19 +71,18 @@ class App extends Component {
     }
   }
   deleteItem(key) {
-
     const list = [...this.state.list];
     const updateList = list.filter((item) => item.id !== key);
     this.setState({
       list: updateList,
     });
   }
-onKeyUp(event){
-  console.log(event);
-  if(event.charCode===13){
-    this.setState({inputValue:event.target.value});
+  onKeyUp(event) {
+    console.log(event);
+    if (event.charCode === 13) {
+      this.setState({ inputValue: event.target.value });
+    }
   }
-}
 
   render() {
     return (
@@ -105,7 +104,7 @@ onKeyUp(event){
           <Col md={{ span: 5, offset: 4 }}>
             <InputGroup className="mb-3">
               <FormControl
-              id="btn"
+                id="btn"
                 pattern="[^\s]+"
                 placeholder="Add Items "
                 size="lg"
@@ -114,18 +113,25 @@ onKeyUp(event){
                 aria-label="add something"
                 aria-describedby="basic-addon2"
                 onKeyPress={this.onKeyUp}
-                
               />
-              
-              
-              <Button color="blue" id="btn" size="lg" onKeyPress={this.onKeyUp} onClick={() => this.addItem()}>
+
+              <Button
+                color="blue"
+                id="btn"
+                size="lg"
+                onKeyPress={this.onKeyUp}
+                onClick={() => this.addItem()}
+              >
                 Add
-              </Button> 
+              </Button>
             </InputGroup>
           </Col>
         </Row>
         <Row>
-          <Comp1 list={this.state.list} onDelete={(data) => this.deleteItem(data.id)} />
+          <Comp1
+            list={this.state.list}
+            onDelete={(data) => this.deleteItem(data.id)}
+          />
         </Row>
         <br />
         <Row>
@@ -144,16 +150,17 @@ onKeyUp(event){
               <Button color="blue" size="lg" onClick={() => this.addItem()}>
                 Add
               </Button>
-
             </InputGroup>
           </Col>
         </Row>
         <Row>
-          <Comp2 list={this.state.list} onAdd="" onDelete={(data) => this.deleteItem(data.id)} />
+          <Comp2
+            list={this.state.list}
+            onAdd=""
+            onDelete={(data) => this.deleteItem(data.id)}
+          />
         </Row>
       </Container>
-
-
     );
   }
 }
